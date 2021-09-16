@@ -9,3 +9,11 @@ stages:
     - data/processed_data/x_train.npy
     - data/processed_data/y_test.npy
     - data/processed_data/y_train.npy
+  normalize:
+    cmd: python3 src/normalize.py
+    deps:
+      - data/processed_data/x_train.npy
+      - data/processed_data/x_test.npy
+      - src/normalize.py
+    outs:
+      - data/scaling_model.dill
