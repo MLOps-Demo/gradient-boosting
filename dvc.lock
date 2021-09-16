@@ -1,0 +1,24 @@
+schema: '2.0'
+stages:
+  data-split:
+    cmd: python3 src/data_split.py
+    deps:
+    - path: data/raw_data/clean_data.csv
+      md5: b20c8cf632976544627b454eec4569cd
+      size: 333768
+    - path: src/data_split.py
+      md5: c5ac7826abdad9566c61fa32b8d0a544
+      size: 837
+    outs:
+    - path: data/processed_data/x_test.npy
+      md5: 2d112d60d739d98a1c38f2ecaa3a575c
+      size: 23424
+    - path: data/processed_data/x_train.npy
+      md5: 084fe9b3d0ddd59d73acf1c26fad3055
+      size: 93120
+    - path: data/processed_data/y_test.npy
+      md5: c9df630695a5479df6e10a053d80f1b8
+      size: 3040
+    - path: data/processed_data/y_train.npy
+      md5: 75253d33076ed9bc5211e9ec8b6f22d7
+      size: 11752

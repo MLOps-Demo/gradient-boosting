@@ -1,0 +1,11 @@
+stages:
+  data-split:
+    cmd: python3 src/data_split.py
+    deps:
+    - data/raw_data/clean_data.csv
+    - src/data_split.py
+    outs:
+    - data/processed_data/x_test.npy
+    - data/processed_data/x_train.npy
+    - data/processed_data/y_test.npy
+    - data/processed_data/y_train.npy
