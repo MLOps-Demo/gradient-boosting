@@ -16,4 +16,4 @@ stages:
       - data/processed_data/x_test.npy
       - src/normalize.py
     outs:
-      - data/scaling_model.dill
+      - data/scaling_model.pkl

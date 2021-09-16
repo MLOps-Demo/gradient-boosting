@@ -1,6 +1,6 @@
 from sklearn.preprocessing import StandardScaler
 import numpy as np
-import dill
+import pickle
 
 
 def normalize():
@@ -16,8 +16,8 @@ def normalize():
     scaling.fit(x_train)
     print("done")
 
-    with open("data/scaling_model.dill", "wb") as x_f:
-        dill.dump(scaling, x_f)
+    with open("data/scaling_model.pkl", "wb") as x_f:
+        pickle.dump(scaling, x_f)
 
 
 if __name__ == '__main__':
