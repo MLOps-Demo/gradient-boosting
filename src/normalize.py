@@ -1,3 +1,6 @@
+"""
+Standard Scaling the raw data
+"""
 from sklearn.preprocessing import StandardScaler
 import numpy as np
 import pickle

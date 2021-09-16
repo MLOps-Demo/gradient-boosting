@@ -5,6 +5,11 @@ Split raw data into training and testing data
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
+import yaml
+
+params = yaml.safe_load(open("params.yaml"))["data-split"]
+split = params["split"]
+seed = params["seed"]
 
 
 def data_split():
@@ -18,7 +23,7 @@ def data_split():
     y = array[:, -1]
 
     print("Splitting data into train and test")
-    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=split, random_state=seed)
     print("done")
 
     np.save('data/processed_data/x_train', x_train)

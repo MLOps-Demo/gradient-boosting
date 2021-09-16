@@ -4,6 +4,9 @@ stages:
     deps:
     - data/raw_data/clean_data.csv
     - src/data_split.py
+    params:
+      - datasplit.split
+      - datasplit.seed
     outs:
     - data/processed_data/x_test.npy
     - data/processed_data/x_train.npy
@@ -24,5 +27,11 @@ stages:
       - data/processed_data/y_train.npy
       - data/scaling_model.pkl
       - src/training.py
+    params:
+      - training.n_est
+      - training.m_depth
+      - training.lr
+      - training.min_split
+      - training.min_depth
     outs:
       - data/gbrt_model.pkl

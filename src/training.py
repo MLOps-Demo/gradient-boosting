@@ -1,14 +1,25 @@
+"""
+Training Gradient boosting model with Grid Search CV
+"""
 from sklearn.model_selection import GridSearchCV
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.model_selection import KFold
 import numpy as np
 import pickle
+import yaml
 
-param_grid = {'n_estimators': [500],
-              'max_depth': [3, 4],
-              'learning_rate': [0.1, 0.01, 0.001],
-              'min_samples_split': [2, 4, 6],
-              'min_samples_leaf': [1, 3, 5]}
+params = yaml.safe_load(open("params.yaml"))["training"]
+n_estimators = params["n_est"]
+max_depth = params["m_depth"]
+learning_rate = params["lr"]
+min_samples_split = params["min_split"]
+min_samples_leaf = params["min_leaf"]
+
+param_grid = {'n_estimators': int(n_estimators),
+              'max_depth': int(max_depth),
+              'learning_rate': float(learning_rate),
+              'min_samples_split': int(min_samples_split),
+              'min_samples_leaf': int(min_samples_leaf)}
 
 
 def training():

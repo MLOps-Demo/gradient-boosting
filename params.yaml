@@ -1,0 +1,10 @@
+data-split:
+  split: 0.2
+  seed: 42
+
+training:
+  n_est: 250
+  m_depth: 2
+  lr: 0.1
+  min_split: 2
+  min_leaf: 3
