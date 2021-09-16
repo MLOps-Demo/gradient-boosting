@@ -4,7 +4,7 @@ import subprocess
 # Automated grid search experiments
 n_estimators = [250, 500]
 max_depth = [3, 4]
-learning_rate = 0.1,
+learning_rate = [0.1, 0.01]
 min_samples_split = [2, 4, 6]
 min_samples_leaf = [1, 3, 5]
 

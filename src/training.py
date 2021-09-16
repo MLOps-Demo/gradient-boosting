@@ -15,11 +15,11 @@ learning_rate = params["lr"]
 min_samples_split = params["min_split"]
 min_samples_leaf = params["min_leaf"]
 
-param_grid = {'n_estimators': int(n_estimators),
-              'max_depth': int(max_depth),
-              'learning_rate': float(learning_rate),
-              'min_samples_split': int(min_samples_split),
-              'min_samples_leaf': int(min_samples_leaf)}
+param_grid = {'n_estimators': n_estimators,
+              'max_depth': max_depth,
+              'learning_rate': learning_rate,
+              'min_samples_split': min_samples_split,
+              'min_samples_leaf': min_samples_leaf}
 
 
 def training():
