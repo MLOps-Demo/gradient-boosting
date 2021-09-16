@@ -38,3 +38,22 @@ stages:
     - path: data/scaling_model.pkl
       md5: c9dee1bc1761b14c472e6b107ba8eba1
       size: 728
+  training:
+    cmd: python3 src/training.py
+    deps:
+    - path: data/processed_data/x_train.npy
+      md5: 084fe9b3d0ddd59d73acf1c26fad3055
+      size: 93120
+    - path: data/processed_data/y_train.npy
+      md5: 75253d33076ed9bc5211e9ec8b6f22d7
+      size: 11752
+    - path: data/scaling_model.pkl
+      md5: c9dee1bc1761b14c472e6b107ba8eba1
+      size: 728
+    - path: src/training.py
+      md5: 12e4ed2584d9c64a446356084a96c03d
+      size: 1162
+    outs:
+    - path: data/gbrt_model.pkl
+      md5: d5c9d1c75a62ee0cc8d51bd84bbd8f39
+      size: 936191

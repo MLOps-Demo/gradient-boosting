@@ -17,3 +17,12 @@ stages:
       - src/normalize.py
     outs:
       - data/scaling_model.pkl
+  training:
+    cmd: python3 src/training.py
+    deps:
+      - data/processed_data/x_train.npy
+      - data/processed_data/y_train.npy
+      - data/scaling_model.pkl
+      - src/training.py
+    outs:
+      - data/gbrt_model.pkl
