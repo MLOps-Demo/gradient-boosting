@@ -5,8 +5,8 @@ stages:
     - data/raw_data/clean_data.csv
     - src/data_split.py
     params:
-      - datasplit.split
-      - datasplit.seed
+      - data-split.split
+      - data-split.seed
     outs:
     - data/processed_data/x_test.npy
     - data/processed_data/x_train.npy
