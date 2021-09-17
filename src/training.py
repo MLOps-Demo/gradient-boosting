@@ -31,6 +31,7 @@ def training():
     scaling_model = pickle.load(open("data/scaling_model.pkl", "rb"))
     x_tr_scale = scaling_model.transform(x_train)
     print("done")
+
     model = GradientBoostingRegressor(n_estimators=n_estimators,
                                       min_samples_split=min_samples_split,
                                       max_depth=max_depth,
