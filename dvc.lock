@@ -61,10 +61,32 @@ stages:
       params.yaml:
         training.lr: 0.1
         training.m_depth: 3
-        training.min_leaf: 1
+        training.min_leaf: 3
         training.min_split: 2
         training.n_est: 250
     outs:
     - path: data/gbrt_model.pkl
-      md5: ed3b755d460e9422ceae5c3422d6b643
-      size: 315767
+      md5: 8c469ee96f093e33a71e2056f1b96690
+      size: 303095
+  evaluate:
+    cmd: python3 src/evaluate.py
+    deps:
+    - path: data/gbrt_model.pkl
+      md5: 8c469ee96f093e33a71e2056f1b96690
+      size: 303095
+    - path: data/processed_data/x_test.npy
+      md5: 2d112d60d739d98a1c38f2ecaa3a575c
+      size: 23424
+    - path: data/processed_data/y_test.npy
+      md5: c9df630695a5479df6e10a053d80f1b8
+      size: 3040
+    - path: data/scaling_model.pkl
+      md5: c9dee1bc1761b14c472e6b107ba8eba1
+      size: 728
+    - path: src/evaluate.py
+      md5: 1d470a0b2593cc9fa92ced659410d744
+      size: 727
+    outs:
+    - path: scores.json
+      md5: 82ba5072c472a510f190f41c7fb1a585
+      size: 64

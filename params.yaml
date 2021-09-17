@@ -7,4 +7,4 @@ training:
   m_depth: 3
   lr: 0.1
   min_split: 2
-  min_leaf: 1
+  min_leaf: 3
