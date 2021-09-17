@@ -7,8 +7,12 @@ stages:
       md5: b20c8cf632976544627b454eec4569cd
       size: 333768
     - path: src/data_split.py
-      md5: c5ac7826abdad9566c61fa32b8d0a544
-      size: 837
+      md5: d5346a51294d0b8a6f043cb38a746501
+      size: 959
+    params:
+      params.yaml:
+        data-split.seed: 42
+        data-split.split: 0.2
     outs:
     - path: data/processed_data/x_test.npy
       md5: 2d112d60d739d98a1c38f2ecaa3a575c
@@ -32,8 +36,8 @@ stages:
       md5: 084fe9b3d0ddd59d73acf1c26fad3055
       size: 93120
     - path: src/normalize.py
-      md5: f0e953afb5f540effb4cd805035c1d2b
-      size: 554
+      md5: 66d3708d2a1e129a808b8a3aca92425e
+      size: 592
     outs:
     - path: data/scaling_model.pkl
       md5: c9dee1bc1761b14c472e6b107ba8eba1
@@ -51,9 +55,16 @@ stages:
       md5: c9dee1bc1761b14c472e6b107ba8eba1
       size: 728
     - path: src/training.py
-      md5: 12e4ed2584d9c64a446356084a96c03d
-      size: 1162
+      md5: 8282267d5b654e23a4fbe2403bf034e6
+      size: 1818
+    params:
+      params.yaml:
+        training.lr: 0.1
+        training.m_depth: 3
+        training.min_leaf: 1
+        training.min_split: 2
+        training.n_est: 250
     outs:
     - path: data/gbrt_model.pkl
-      md5: d5c9d1c75a62ee0cc8d51bd84bbd8f39
-      size: 936191
+      md5: ed3b755d460e9422ceae5c3422d6b643
+      size: 315767

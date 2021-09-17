@@ -32,6 +32,17 @@ stages:
       - training.m_depth
       - training.lr
       - training.min_split
-      - training.min_depth
+      - training.min_leaf
     outs:
       - data/gbrt_model.pkl
+  evaluate:
+    cmd: python3 src/evaluate.py
+    deps:
+      - data/processed_data/x_test.npy
+      - data/processed_data/y_test.npy
+      - data/scaling_model.pkl
+      - data/gbrt_model.pkl
+      - src/evaluate.py
+    metrics:
+      - scores.json:
+          cache: false
