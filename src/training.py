@@ -24,7 +24,6 @@ param_grid = {'n_estimators': n_estimators,
 
 def training():
     print("Training GBRT model with Grid Search")
-    model = GradientBoostingRegressor()
 
     print("Loading scaled features and labels")
     x_train = np.load("data/processed_data/x_train.npy")
@@ -32,15 +31,20 @@ def training():
     scaling_model = pickle.load(open("data/scaling_model.pkl", "rb"))
     x_tr_scale = scaling_model.transform(x_train)
     print("done")
-
-    print("Cross Validation Started")
-    kfold = KFold(n_splits=10)
-    grid_search = GridSearchCV(model, param_grid, cv=kfold, scoring = 'neg_mean_squared_error')
-    grid_search.fit(x_tr_scale, y_train)
-    print("done")
+    model = GradientBoostingRegressor(n_estimators=n_estimators,
+                                      min_samples_split=min_samples_split,
+                                      max_depth=max_depth,
+                                      learning_rate=learning_rate,
+                                      min_samples_leaf=min_samples_leaf)
+    model.fit(x_tr_scale, y_train)
+    # print("Cross Validation Started")
+    # kfold = KFold(n_splits=10)
+    # grid_search = GridSearchCV(model, param_grid, cv=kfold, scoring = 'neg_mean_squared_error')
+    # grid_search.fit(x_tr_scale, y_train)
+    # print("done")
 
     with open("data/gbrt_model.pkl", "wb") as x_f:
-        pickle.dump(grid_search, x_f)
+        pickle.dump(model, x_f)
 
 
 if __name__ == '__main__':
