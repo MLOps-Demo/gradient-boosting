@@ -87,6 +87,9 @@ stages:
       md5: c50b2345b32b4b94abb3cfee69096f93
       size: 938
     outs:
+    - path: data/prediction.csv
+      md5: 5deeb6cfcf0f62a1b88332d0891c434b
+      size: 13227
     - path: scores.json
       md5: e173ec2c7e4f97a5be2ec678da76357e
       size: 63
