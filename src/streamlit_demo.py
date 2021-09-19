@@ -18,7 +18,7 @@ st.write("Selected Commit", selected_commit)
 
 @st.cache
 def load_predictions(rev: str) -> pd.DataFrame:
-    with dvc.api.open("data/predictions.csv", rev=rev) as f:
+    with dvc.api.open("data/prediction.csv", rev=rev) as f:
         return pd.read_csv(f)
 
 
