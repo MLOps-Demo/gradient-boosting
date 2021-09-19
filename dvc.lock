@@ -36,8 +36,8 @@ stages:
       md5: 084fe9b3d0ddd59d73acf1c26fad3055
       size: 93120
     - path: src/normalize.py
-      md5: 66d3708d2a1e129a808b8a3aca92425e
-      size: 592
+      md5: f16613f9b3084439cd4ba310db24d95d
+      size: 731
     outs:
     - path: data/scaling_model.pkl
       md5: c9dee1bc1761b14c472e6b107ba8eba1
