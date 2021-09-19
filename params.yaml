@@ -3,8 +3,8 @@ data-split:
   seed: 42
 
 training:
-  n_est: 250
-  m_depth: 3
-  lr: 0.1
-  min_split: 2
-  min_leaf: 3
+  n_est: 500
+  m_depth: 4
+  lr: 0.01
+  min_split: 6
+  min_leaf: 5
