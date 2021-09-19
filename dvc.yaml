@@ -43,7 +43,7 @@ stages:
       - data/scaling_model.pkl
       - data/gbrt_model.pkl
       - src/evaluate.py
-    out:
+    outs:
       - data/prediction.csv
     metrics:
       - scores.json:
