@@ -20,8 +20,15 @@ jobs:
       - name: cml
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
+          GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS }}
         run: |
           pip install -r requirements.txt
+
+          # Pull latest data from remote
+          dvc pull
+
+          # Reproduce pipeline if any changes detected in dependencies
+          dvc repro
           
           # Use DVC metrics diff to compare metrics to master
           git fetch --prune --unshallow
