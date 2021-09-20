@@ -1,2 +1,5 @@
 /venv
 /training_metrics
+/deviance.png
+/feature_importance.png
+/learning_curve.png

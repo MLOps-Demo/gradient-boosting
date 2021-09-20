@@ -66,13 +66,16 @@ stages:
         training.n_est: 500
     outs:
     - path: data/gbrt_model.pkl
-      md5: 02e0da5d39e200f197d982558835ca4b
+      md5: 0dadf6128f31d487e4be7b33baa0e161
       size: 922670
+    - path: learning_curve.png
+      md5: 1bef88c17d8034cbee55adc47757ed73
+      size: 81152
   evaluate:
     cmd: python3 src/evaluate.py
     deps:
     - path: data/gbrt_model.pkl
-      md5: 02e0da5d39e200f197d982558835ca4b
+      md5: 0dadf6128f31d487e4be7b33baa0e161
       size: 922670
     - path: data/processed_data/x_test.npy
       md5: 2d112d60d739d98a1c38f2ecaa3a575c
@@ -88,8 +91,14 @@ stages:
       size: 1243
     outs:
     - path: data/prediction.csv
-      md5: 6f4490e19631c35bab7102a75d9c364e
-      size: 13235
+      md5: fe61dda0b918e0ef6f8d13577ca0d38a
+      size: 13225
+    - path: deviance.png
+      md5: 0f6aebc39ad5d2fa4fdd29fcad829218
+      size: 32921
+    - path: feature_importance.png
+      md5: 3150a3af14a9b9375f02d88f188d36a1
+      size: 44463
     - path: scores.json
-      md5: e15f70b2615c6ab408ef8dcb30fa8bac
-      size: 64
+      md5: c9ce82bc23ff2cb8877a0ffdcad1f825
+      size: 63
