@@ -35,6 +35,7 @@ stages:
       - training.min_leaf
     outs:
       - data/gbrt_model.pkl
+      - learning_curve.png
   evaluate:
     cmd: python3 src/evaluate.py
     deps:
@@ -45,6 +46,8 @@ stages:
       - src/evaluate.py
     outs:
       - data/prediction.csv
+      - deviance.png
+      - feature_importance.png
     metrics:
       - scores.json:
           cache: false

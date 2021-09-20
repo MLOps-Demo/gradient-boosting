@@ -36,6 +36,13 @@ jobs:
           cml-send-comment report.md
           
           # Add figure to report
+          cml-publish deviance.png --md >> report1.md
+          cml-publish feature_importance.png --md >> report2.md
+          cml-publish learning_curve.png --md >> report3.md
+
 #          dvc plots diff --target loss.csv --show-vega master > vega.json
 #          vl2png vega.json -s 1.3 | cml-publish --md >> report.md
-#          cml-send-comment report.md
+          cml-send-comment report1.md
+          cml-send-comment report2.md
+          cml-send-comment report3.md
+
