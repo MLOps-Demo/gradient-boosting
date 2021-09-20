@@ -3,6 +3,9 @@ import pickle
 import json
 import numpy as np
 import pandas as pd
+from learning_curves import deviance, feature_importance
+from data_split import load_data
+
 
 def evaluate():
     print("Model Evaluation")
@@ -14,8 +17,15 @@ def evaluate():
     print("done")
 
     model = pickle.load(open("data/gbrt_model.pkl", "rb"))
-    predictions = model.predict(x_te_scale)
 
+    fig2 = deviance(model, x_te_scale, y_test)
+    fig2.savefig("deviance.png")
+
+    _, cols = load_data()
+    fig3 = feature_importance(model, cols, x_te_scale, y_test)
+    fig3.savefig("feature_importance.png")
+
+    predictions = model.predict(x_te_scale)
     prediction_csv = pd.DataFrame({"target_labels": y_test,
                                    "predicted_labels": predictions})
     prediction_csv.to_csv("data/prediction.csv", index=False)

@@ -12,11 +12,15 @@ split = params["split"]
 seed = params["seed"]
 
 
-def data_split():
+def load_data():
     print("Loading data from given folder")
     df = pd.read_csv('data/raw_data/clean_data.csv').set_index('NewDateTime')
+    cols = df.columns.tolist()
     print("done")
+    return df, cols
 
+
+def data_split(df):
     array = df.values
 
     x = array[:, :-1]
@@ -34,4 +38,5 @@ def data_split():
 
 
 if __name__ == '__main__':
-    data_split()
+    data, _ = load_data()
+    data_split(data)
