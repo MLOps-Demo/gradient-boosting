@@ -4,3 +4,5 @@
     url = https://dagshub.com/skshreyas714/gradient-boosting.dvc
 ['remote "gdrive"']
     url = gdrive://1FBwu0PCgr9USFx6g_ZELdwvPfT-u5Dcy
+['remote "mlops-org"']
+    url = gdrive://1ebfz-ptQPbgxgqYx0eQHamdNxsbARC9t
