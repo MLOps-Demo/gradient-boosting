@@ -3,7 +3,7 @@ data-split:
   seed: 42
 
 training:
-  n_est: 500
+  n_est: 50
   m_depth: 4
   lr: 0.01
   min_split: 6
